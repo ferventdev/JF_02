@@ -19,4 +19,12 @@ public abstract class Stationary {
     public int getPrice() {
         return price;
     }
+
+    @Override
+    public String toString() {
+        return "Stationary { " +
+                "name = '" + name + '\'' +
+                ", price = " + price +
+                " }";
+    }
 }
