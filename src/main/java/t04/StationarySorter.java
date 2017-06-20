@@ -3,7 +3,6 @@ package t04;
 import t03.Stationary;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -11,15 +10,18 @@ import java.util.List;
  */
 public class StationarySorter {
     public static void sortByName(List<Stationary> stationaries) {
-        Collections.sort(stationaries, Comparator.comparing(Stationary::getName));
+        Collections.sort(stationaries, (a, b) -> a.getName().compareTo(b.getName()));
     }
 
     public static void sortByPrice(List<Stationary> stationaries) {
-        Collections.sort(stationaries, Comparator.comparing(Stationary::getPrice));
+        Collections.sort(stationaries, (a, b) -> Integer.compare(a.getPrice(), b.getPrice()));
     }
 
     public static void sortByPriceAndName(List<Stationary> stationaries) {
-        Collections.sort(stationaries, Comparator.comparing(Stationary::getPrice).thenComparing(Stationary::getName));
+        Collections.sort(stationaries, (a, b) -> {
+            int res = Integer.compare(a.getPrice(), b.getPrice());
+            return res == 0 ? a.getName().compareTo(b.getName()) : res;
+        });
     }
 
 }

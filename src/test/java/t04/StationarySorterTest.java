@@ -25,7 +25,7 @@ public class StationarySorterTest {
         stationaries.add(new Pen());
         stationaries.add(new Notepad());
         stationaries.add(new Pencil());
-        printAll("Before sorting:");
+//        printAll("Before sorting:");
     }
 
     private void printAll(String header) {
@@ -41,27 +41,27 @@ public class StationarySorterTest {
     }
 
     @Test
-    public void sortByName() throws Exception {
+    public void sortByNameTest() throws Exception {
         StationarySorter.sortByName(stationaries);
-        printAll("After sorting by name:");
+//        printAll("After sorting by name:");
         assertTrue(checkSortingOrder(Comparator.comparing(Stationary::getName)));
-        System.out.println("sortByName test passed\n");
+        System.out.println("StationarySorter.sortByName test passed");
     }
 
     @Test
-    public void sortByPrice() throws Exception {
+    public void sortByPriceTest() throws Exception {
         StationarySorter.sortByPrice(stationaries);
-        printAll("After sorting by price:");
+//        printAll("After sorting by price:");
         assertTrue(checkSortingOrder(Comparator.comparing(Stationary::getPrice)));
-        System.out.println("sortByPrice test passed\n");
+        System.out.println("StationarySorter.sortByPrice test passed");
     }
 
     @Test
-    public void sortByPriceAndName() throws Exception {
+    public void sortByPriceAndNameTest() throws Exception {
         StationarySorter.sortByPriceAndName(stationaries);
-        printAll("After sorting by price and name:");
+//        printAll("After sorting by price and name:");
         assertTrue(checkSortingOrder(Comparator.comparing(Stationary::getPrice).thenComparing(Stationary::getName)));
-        System.out.println("sortByPriceAndName test passed\n");
+        System.out.println("StationarySorter.sortByPriceAndName test passed");
     }
 
 }
