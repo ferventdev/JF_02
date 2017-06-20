@@ -5,6 +5,6 @@ package t03;
  */
 public class Notepad extends Stationary {
     public Notepad() {
-        super("notepad", 100);
+        super("notepad", 200);
     }
 }

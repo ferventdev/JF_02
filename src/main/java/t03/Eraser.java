@@ -5,6 +5,6 @@ package t03;
  */
 public class Eraser extends Stationary {
     public Eraser() {
-        super("eraser", 40);
+        super("eraser", 30);
     }
 }

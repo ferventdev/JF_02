@@ -5,6 +5,6 @@ package t03;
  */
 public class Pencil extends Stationary {
     public Pencil() {
-        super("pencil", 20);
+        super("pencil", 30);
     }
 }

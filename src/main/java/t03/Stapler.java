@@ -5,6 +5,6 @@ package t03;
  */
 public class Stapler extends Stationary {
     public Stapler() {
-        super("stapler", 250);
+        super("stapler", 200);
     }
 }
