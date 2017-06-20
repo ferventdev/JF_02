@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class StationaryTest {
     @Test
     public void stationaryTest() throws Exception {
-        Set<Stationary> starterKit = new HashSet<>();
+        final Set<Stationary> starterKit = new HashSet<>();
         Eraser eraser = new Eraser();
         Notepad notepad = new Notepad();
         Pen pen = new Pen();
@@ -24,13 +24,25 @@ public class StationaryTest {
         starterKit.add(notepad);
         starterKit.add(pen);
         starterKit.add(pencil);
-        // starterKit.add(new Stapler());
+        starterKit.add(stapler);
 
         assertTrue(eraser instanceof Stationary);
         assertTrue(notepad instanceof Stationary);
         assertTrue(pen instanceof Stationary);
         assertTrue(pencil instanceof Stationary);
         assertTrue(stapler instanceof Stationary);
+
+        assertEquals(starterKit.size(), 5);
+
+        assertTrue(starterKit.contains(eraser));
+        assertTrue(starterKit.contains(notepad));
+        assertTrue(starterKit.contains(pen));
+        assertTrue(starterKit.contains(pencil));
+        assertTrue(starterKit.contains(stapler));
+
+        starterKit.remove(stapler);
+        assertFalse(starterKit.contains(stapler));
+        assertEquals(starterKit.size(), 4);
 
         System.out.println("StationaryTest successfully passed");
     }
