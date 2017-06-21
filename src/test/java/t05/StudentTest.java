@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 public class StudentTest {
     @Test
     public void studentTest() throws Exception {
-
+        assertEquals(new Student("Dima Petrov"), new Student("Dima Petrov"));
+        assertNotEquals(new Student("Dima Petrov"), new Student("Dima Ivanov"));
     }
 }
