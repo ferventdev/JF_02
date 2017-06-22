@@ -43,7 +43,5 @@ public class StationaryTest {
         starterKit.remove(stapler);
         assertFalse(starterKit.contains(stapler));
         assertEquals(starterKit.size(), 4);
-
-        System.out.println("StationaryTest successfully passed");
     }
 }
