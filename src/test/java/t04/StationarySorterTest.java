@@ -45,7 +45,6 @@ public class StationarySorterTest {
         StationarySorter.sortByName(stationaries);
 //        printAll("After sorting by name:");
         assertTrue(checkSortingOrder(Comparator.comparing(Stationary::getName)));
-        System.out.println("StationarySorter.sortByName test passed");
     }
 
     @Test
@@ -53,7 +52,6 @@ public class StationarySorterTest {
         StationarySorter.sortByPrice(stationaries);
 //        printAll("After sorting by price:");
         assertTrue(checkSortingOrder(Comparator.comparing(Stationary::getPrice)));
-        System.out.println("StationarySorter.sortByPrice test passed");
     }
 
     @Test
@@ -61,7 +59,5 @@ public class StationarySorterTest {
         StationarySorter.sortByPriceAndName(stationaries);
 //        printAll("After sorting by price and name:");
         assertTrue(checkSortingOrder(Comparator.comparing(Stationary::getPrice).thenComparing(Stationary::getName)));
-        System.out.println("StationarySorter.sortByPriceAndName test passed");
     }
-
 }
