@@ -20,16 +20,16 @@ public class WorkspaceTest {
         ws1.setEmployee("Paul");
         ws2.setEmployee("Janet");
 
-        assertEquals(ws1.getEmployee(), "Paul");
-        assertEquals(ws2.getEmployee(), "Janet");
+        assertEquals("Paul", ws1.getEmployee());
+        assertEquals("Janet", ws2.getEmployee());
 
         for (int i = 0; i < 3; i++) assertTrue(ws1.hasItem(items[i]));
         for (int i = 3; i < items.length; i++) assertFalse(ws1.hasItem(items[i]));
         for (int i = 0; i < 3; i++) assertFalse(ws2.hasItem(items[i]));
         for (int i = 3; i < items.length; i++) assertTrue(ws2.hasItem(items[i]));
 
-        assertEquals(ws1.totalPrice(), items[0].getPrice() + items[1].getPrice() + items[2].getPrice());
-        assertEquals(ws2.totalPrice(), items[3].getPrice() + items[4].getPrice());
+        assertEquals(items[0].getPrice() + items[1].getPrice() + items[2].getPrice(), ws1.totalPrice());
+        assertEquals( items[3].getPrice() + items[4].getPrice(), ws2.totalPrice());
 
         System.out.println("Paul has stationary items with total price of " + ws1.totalPrice());
         System.out.println("Janet has stationary items with total price of " + ws2.totalPrice());

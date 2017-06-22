@@ -16,7 +16,7 @@ public class StationaryTest {
         int price = 100;
         String str = "Stationary { " + "name = '" + name + '\'' + ", price = " + price + " }";
 
-        assertEquals(notepad.toString(), str);
+        assertEquals(str, notepad.toString());
     }
 
     @Test
@@ -27,17 +27,17 @@ public class StationaryTest {
         Stationary eraser = new Eraser();
         Stationary stapler = new Stapler();
 
-        assertEquals(notepad.getName(), "notepad");
-        assertEquals(pencil.getName(), "pencil");
-        assertEquals(pen.getName(), "pen");
-        assertEquals(eraser.getName(), "eraser");
-        assertEquals(stapler.getName(), "stapler");
+        assertEquals("notepad", notepad.getName());
+        assertEquals("pencil", pencil.getName());
+        assertEquals("pen", pen.getName());
+        assertEquals("eraser", eraser.getName());
+        assertEquals("stapler", stapler.getName());
 
-        assertNotEquals(notepad.getName(), "aaa");
-        assertNotEquals(pencil.getName(), "bbb");
-        assertNotEquals(pen.getName(), "ccc");
-        assertNotEquals(eraser.getName(), "ddd");
-        assertNotEquals(stapler.getName(), "eee");
+        assertNotEquals("aaa", notepad.getName());
+        assertNotEquals("bbb", pencil.getName());
+        assertNotEquals("ccc", pen.getName());
+        assertNotEquals("ddd", eraser.getName());
+        assertNotEquals("eee", stapler.getName());
     }
 
     @Test
@@ -48,16 +48,16 @@ public class StationaryTest {
         Stationary eraser = new Eraser();
         Stationary stapler = new Stapler();
 
-        assertEquals(notepad.getPrice(), 100);
-        assertEquals(pencil.getPrice(), 20);
-        assertEquals(pen.getPrice(), 50);
-        assertEquals(eraser.getPrice(), 40);
-        assertEquals(stapler.getPrice(), 250);
+        assertEquals(100, notepad.getPrice());
+        assertEquals(20, pencil.getPrice());
+        assertEquals(50, pen.getPrice());
+        assertEquals(40, eraser.getPrice());
+        assertEquals(250, stapler.getPrice());
 
-        assertNotEquals(notepad.getPrice(), 110);
-        assertNotEquals(pencil.getPrice(), 22);
-        assertNotEquals(pen.getPrice(), 57);
-        assertNotEquals(eraser.getPrice(), 42);
-        assertNotEquals(stapler.getPrice(), 259);
+        assertNotEquals(110, notepad.getPrice());
+        assertNotEquals(22, pencil.getPrice());
+        assertNotEquals(57, pen.getPrice());
+        assertNotEquals(42, eraser.getPrice());
+        assertNotEquals(259, stapler.getPrice());
     }
 }
