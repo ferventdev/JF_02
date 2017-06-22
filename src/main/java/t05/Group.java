@@ -1,8 +1,6 @@
 package t05;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 /**
  * Created by Aleksandr Shevkunenko on 21.06.2017.
@@ -23,7 +21,11 @@ public enum Group {
         this.gradeType = gradeType;
     }
 
-    private enum GradeType { INTEGER, FLOAT }
+    enum GradeType { INTEGER, FLOAT }
+
+    public GradeType getGradeType() {
+        return gradeType;
+    }
 
     public boolean addStudent(Student student) {
         return null == grades.putIfAbsent(student, 0);
@@ -56,5 +58,16 @@ public enum Group {
             grade = grade.floatValue();
         }
         return null != grades.put(student, grade);
+    }
+
+    public static Map<Group, Number> getStudentProgress(Student student) {
+        Map<Group, Number> progress = new HashMap<>();
+        for(Group subject : Group.values()) {
+            if (subject.grades.containsKey(student)) {
+                progress.put(subject, subject.getGrade(student));
+//                System.out.println(subject + ": " + subject.getGrade(student));
+            }
+        }
+        return progress;
     }
 }

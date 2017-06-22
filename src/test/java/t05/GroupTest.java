@@ -2,6 +2,8 @@ package t05;
 
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 import static org.junit.Assert.*;
@@ -20,8 +22,8 @@ public class GroupTest {
         Group.ELECTRONICS.addStudent(dima, 3);
         Group.PHILOSOPHY.addStudent(dima, 80.0);
 
-        assertEquals(Group.ELECTRONICS.getGrade(dima), 3);
-        assertEquals(Group.PHILOSOPHY.getGrade(dima), 80.0f);
+        assertEquals(3, Group.ELECTRONICS.getGrade(dima));
+        assertEquals(80.0f, Group.PHILOSOPHY.getGrade(dima));
 
         assertTrue(Group.ELECTRONICS.getGrade(dima) instanceof Integer);
         assertTrue(Group.PHILOSOPHY.getGrade(dima) instanceof Float);
@@ -33,9 +35,6 @@ public class GroupTest {
         }
 
         assertNull(Group.PHILOSOPHY.getGradeOrNull(vasya));
-
-        System.out.println("Group.getGrade test passed");
-
     }
 
     @Test
@@ -43,8 +42,8 @@ public class GroupTest {
         Group.HISTORY.addStudent(dima);
         Group.PHYSICS.addStudent(sasha);
 
-        assertEquals(Group.HISTORY.getGrade(dima), 0);
-        assertEquals(Group.PHYSICS.getGrade(sasha), 0);
+        assertEquals(0, Group.HISTORY.getGrade(dima));
+        assertEquals(0, Group.PHYSICS.getGrade(sasha));
 
         assertTrue(Group.HISTORY.setGrade(dima, 75.0));
         assertTrue(Group.PHYSICS.setGrade(sasha, 4));
@@ -52,10 +51,8 @@ public class GroupTest {
         assertFalse(Group.HISTORY.setGrade(sasha, 60.0));
         assertFalse(Group.PHYSICS.setGrade(dima, 5));
 
-        assertEquals(Group.HISTORY.getGrade(dima), 75.0f);
-        assertEquals(Group.PHYSICS.getGrade(sasha), 4);
-
-        System.out.println("Group.setGrade test passed");
+        assertEquals(75.0f, Group.HISTORY.getGrade(dima));
+        assertEquals(4, Group.PHYSICS.getGrade(sasha));
     }
 
     @Test
@@ -64,7 +61,21 @@ public class GroupTest {
         assertFalse(Group.CALCULUS.addStudent(dima, 5));
         assertTrue(Group.ARTS.addStudent(vasya));
         assertFalse(Group.ARTS.addStudent(vasya, 4));
-        System.out.println("Group.addStudent test passed");
     }
 
+    @Test
+    public void getStudentProgress() throws Exception {
+        Student johnny = new Student("Johnny");
+        Map<Group, Number> progressOfJohnny = new HashMap<>();
+        int grade = 50;
+        Number actual = 0;
+        for(Group subject : Group.values()) {
+            if (subject.getGradeType() == Group.GradeType.INTEGER) actual = new Integer(grade);
+            else actual = new Float(grade);
+            progressOfJohnny.put(subject, actual);
+            subject.addStudent(johnny, grade);
+            grade += 2;
+        }
+        assertEquals(progressOfJohnny, Group.getStudentProgress(johnny));
+    }
 }
