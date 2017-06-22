@@ -17,8 +17,6 @@ public class StationaryTest {
         String str = "Stationary { " + "name = '" + name + '\'' + ", price = " + price + " }";
 
         assertEquals(notepad.toString(), str);
-
-        System.out.println("Stationary.toStringTest passed");
     }
 
     @Test
@@ -40,8 +38,6 @@ public class StationaryTest {
         assertNotEquals(pen.getName(), "ccc");
         assertNotEquals(eraser.getName(), "ddd");
         assertNotEquals(stapler.getName(), "eee");
-
-        System.out.println("Stationary.getNameTest passed");
     }
 
     @Test
@@ -63,7 +59,5 @@ public class StationaryTest {
         assertNotEquals(pen.getPrice(), 57);
         assertNotEquals(eraser.getPrice(), 42);
         assertNotEquals(stapler.getPrice(), 259);
-
-        System.out.println("Stationary.getPriceTest passed");
     }
 }

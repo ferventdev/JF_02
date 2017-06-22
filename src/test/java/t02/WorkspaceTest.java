@@ -31,8 +31,6 @@ public class WorkspaceTest {
         assertEquals(ws1.totalPrice(), items[0].getPrice() + items[1].getPrice() + items[2].getPrice());
         assertEquals(ws2.totalPrice(), items[3].getPrice() + items[4].getPrice());
 
-        System.out.println("Workspace class successfully tested");
-
         System.out.println("Paul has stationary items with total price of " + ws1.totalPrice());
         System.out.println("Janet has stationary items with total price of " + ws2.totalPrice());
     }
