@@ -32,7 +32,7 @@ public class StationaryTest {
         assertTrue(pencil instanceof Stationary);
         assertTrue(stapler instanceof Stationary);
 
-        assertEquals(starterKit.size(), 5);
+        assertEquals(5, starterKit.size());
 
         assertTrue(starterKit.contains(eraser));
         assertTrue(starterKit.contains(notepad));
@@ -42,6 +42,6 @@ public class StationaryTest {
 
         starterKit.remove(stapler);
         assertFalse(starterKit.contains(stapler));
-        assertEquals(starterKit.size(), 4);
+        assertEquals(4, starterKit.size());
     }
 }
