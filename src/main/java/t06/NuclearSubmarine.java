@@ -1,8 +1,11 @@
 package t06;
 
+import t07.ExtraInfo;
+
 /**
  * Created by Aleksandr Shevkunenko on 22.06.2017.
  */
+@ExtraInfo("Powered with nuclear reactor.")
 public class NuclearSubmarine {
     private final String project;
     private final String name;
